@@ -88,13 +88,13 @@ h1 {
 }
 
 .search-form fieldset {
-  border: none;    /* ❌ Sin recuadro */
+  border: none;   
   padding: 0;
   margin: 0;
 }
 
 .search-form legend {
-  display: none;   /* Oculta el título */
+  display: none;   
 }
 
 .cluster {
