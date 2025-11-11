@@ -1,0 +1,245 @@
+/* === Variables y reset === */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --wrap: 1080px;
+  --ink: #111827;
+  --muted: #6b7280;
+  --bg: #0b1020;
+  --card: #121831;
+  --line: #1d2649;
+  --brand: #ff8800;
+  --brand-weak: #ede9fe;
+  --ok: #22c55e;
+  --err: #ef4444;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #e7e9ee;
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(255,136,0, .12), transparent 60%), var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Layout general === */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Header === */
+.header {
+  background: linear-gradient(180deg, #121831, #0f1429);
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.brand {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.brand span {
+  color: var(--brand);
+}
+
+.header p {
+  color: #a5bafc;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+}
+
+/* === Main content === */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: var(--brand);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === Formulario de búsqueda === */
+.search-form {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.search-form fieldset {
+  border: none;    /* ❌ Sin recuadro */
+  padding: 0;
+  margin: 0;
+}
+
+.search-form legend {
+  display: none;   /* Oculta el título */
+}
+
+.cluster {
+  display: flex;
+  gap: 0.6rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background-color: #0f152b;
+  color: #e7e9ee;
+  font-size: 1rem;
+  outline: none;
+}
+
+::placeholder {
+  color: #8b93bd;
+}
+
+.btn {
+  background: linear-gradient(135deg, #ff8800, #ff6a00);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 136, 0, 0.5);
+}
+
+/* === Loader === */
+.loader {
+  border: 6px solid rgba(255,255,255,0.15);
+  border-top: 6px solid var(--brand);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+/* === Resultados === */
+.grid-3 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255,136,0,0.25);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: var(--brand);
+  font-size: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+.card p {
+  color: #9aa3d1;
+  margin-top: 0.2rem;
+}
+
+/* === Footer === */
+.footer {
+  background: #0f1429;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 1rem;
+  color: #a5bafc;
+  font-size: 0.9rem;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* === Mensajes de advertencia === */
+.alert {
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  margin: 1rem auto;
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert.warning {
+  background: rgba(255, 136, 0, 0.1);
+  border: 1px solid rgba(255, 136, 0, 0.4);
+  color: #ffb84d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsividad === */
+@media (max-width: 900px) {
+  .main {
+    padding: 1.5rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .brand {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFinder 🎬</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!--  Header  -->
+    <header class="header">
+      <div class="brand-container">
+        <h2 class="brand"><span>Cine</span>Finder</h2>
+        <p>
+          Bienvenido a <b>CineFinder</b>, tu buscador de películas.  
+          CineFinder te permite buscar películas de forma rápida y sencilla, mostrando títulos, imágenes y años de estreno usando la base de datos de OMDb.
+        </p>
+        <p class="help">
+          <b>Encuentra tu próxima película favorita en segundos.</b>
+        </p>
+      </div>
+    </header>
+
+    <!--  Contenido principal -->
+    <main class="main">
+      <h1>🎬 Encuentra tu película favorita</h1>
+
+      <div class="form search-form">
+        <fieldset>
+          <legend>Buscar Película</legend>
+          <div class="cluster">
+            <input type="text" id="buscar" placeholder="Ejemplo: Inception, Avatar, Matrix..." />
+            <button id="btnBuscar" class="btn primary">Buscar</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Loader -->
+      <div id="loader" class="loader hidden"></div>
+
+      <!-- Resultados -->
+      <section id="resultado" class="grid-3"></section>
+    </main>
+
+    <!--Footer -->
+    <footer class="footer">
+      <p>© 2025 CineFinder 🎬 — Desarrollado por Thiago usando la API de OMDb</p>
+    </footer>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
